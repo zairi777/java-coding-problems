@@ -23,7 +23,7 @@ public class ReversingLettersTest {
             return null;
 
         return new StringBuilder(str).reverse().toString();
-      
+
     }
 
     @ParameterizedTest
