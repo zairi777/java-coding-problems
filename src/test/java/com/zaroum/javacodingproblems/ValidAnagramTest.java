@@ -12,12 +12,39 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Anagram Validation Algorithm Tests
+ * 
+ * Problem Description:
+ * Given two strings, determine if they are anagrams of each other.
+ * Two strings are anagrams if they contain the same characters with the same frequencies,
+ * but possibly in different order. The comparison is case-sensitive.
+ * 
+ * Examples:
+ * - "listen" and "silent" → true (same characters, different order)
+ * - "elbow" and "below" → true (anagrams)
+ * - "hello" and "world" → false (different characters)
+ * - "Listen" and "Silent" → false (case-sensitive, different cases)
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null strings, different lengths)
+ * 2. Check if strings are identical (optimization)
+ * 3. Create character frequency maps for both strings
+ * 4. Compare frequency maps to ensure same character counts
+ * 
+ * Implementation Details:
+ * - Uses Java 8 Streams with groupingBy and counting collectors
+ * - Case-sensitive comparison (A ≠ a)
+ * - Handles all Unicode characters including special symbols
+ * - Short-circuit optimization for different lengths
+ * 
+ * Time Complexity: O(n) where n is the length of the strings
+ * Space Complexity: O(k) where k is the number of unique characters
+ */
 @DisplayName("Valid Anagram Tests")
 public class ValidAnagramTest {
 
-    /**
-     * A program that checks for valid anagram
-     */
+ 
     private boolean checkIsValidAnagram(String str1, String str2) {
         if(str1 == null || str2 == null){
             return false;

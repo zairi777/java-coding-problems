@@ -12,6 +12,36 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
 
+/**
+ * Kth Largest Element Algorithm Tests
+ * 
+ * Problem Description:
+ * Given a list of integers and an integer k, find the kth largest element in the list.
+ * The kth largest element is the element that would be at index k (0-based) if the list
+ * were sorted in descending order. Note: k=0 means the largest element, k=1 means
+ * the second largest, etc.
+ * 
+ * Examples:
+ * - [3,1,4,1,5] with k=0 → 5 (largest element)
+ * - [3,1,4,1,5] with k=1 → 4 (second largest)
+ * - [3,1,4,1,5] with k=2 → 3 (third largest)
+ * - [10,20,30] with k=2 → 10 (smallest in this case)
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null/empty list)
+ * 2. Sort the list in descending order
+ * 3. Return element at index k
+ * 4. Throw IndexOutOfBoundsException for invalid k values
+ * 
+ * Implementation Details:
+ * - Uses in-place sorting with custom comparator (descending order)
+ * - Handles duplicate elements (they maintain their positions after sorting)
+ * - Supports negative numbers and zero
+ * - Validates k bounds (must be within [0, list.size()-1])
+ * 
+ * Time Complexity: O(n log n) where n is the size of the list (due to sorting)
+ * Space Complexity: O(1) for in-place sorting (excluding input list)
+ */
 @DisplayName("Kth Largest Element In List Tests")
 public class KthLargestItemInListTest {
 

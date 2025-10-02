@@ -11,13 +11,38 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * String Reversal Algorithm Tests
+ * 
+ * Problem Description:
+ * Given a string, reverse the order of all characters in the string.
+ * The algorithm should return a new string with characters in reverse order,
+ * preserving all original characters including spaces, punctuation, and special symbols.
+ * 
+ * Examples:
+ * - "hello" → "olleh"
+ * - "programming" → "gnimmargorp"
+ * - "Hello World!" → "!dlroW olleH"
+ * - "12345" → "54321"
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null/empty string)
+ * 2. Use StringBuilder's built-in reverse() method for efficiency
+ * 3. Convert back to string and return
+ * 
+ * Implementation Details:
+ * - Uses StringBuilder.reverse() for optimal performance
+ * - Preserves all characters including Unicode, spaces, and symbols
+ * - Case-sensitive reversal (maintains original casing)
+ * - Handles strings of any length
+ * 
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(n) for the StringBuilder and result string
+ */
 @DisplayName("Reversing Letters Tests")
 public class ReversingLettersTest {
 
-    /**
-     * A program that reverses the letters of
-     * each word
-     */
+ 
     private String reverseLetters(String str) {
         if(str == null || str.length() == 0)
             return null;

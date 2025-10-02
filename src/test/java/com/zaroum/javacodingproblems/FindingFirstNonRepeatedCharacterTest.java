@@ -13,13 +13,39 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Finding First Non-Repeated Character Algorithm Tests
+ * 
+ * Problem Description:
+ * Given a string, find and return the first character that appears exactly once
+ * in the string. If no such character exists, return null.
+ * The algorithm maintains the order of characters as they appear in the original string.
+ * 
+ * Examples:
+ * - "hello" → 'h' (first character that appears only once)
+ * - "programming" → 'p' (first non-repeated character)
+ * - "aabbcc" → null (all characters are repeated)
+ * - "abac" → 'b' (first character with single occurrence)
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null/empty string)
+ * 2. Use LinkedHashMap to maintain insertion order while counting frequencies
+ * 3. Iterate through characters and count occurrences using compute()
+ * 4. Find first character with frequency = 1
+ * 
+ * Implementation Details:
+ * - Uses LinkedHashMap to preserve character order
+ * - Case-sensitive character matching
+ * - Handles all Unicode characters including special symbols
+ * - Returns Character object (can be null)
+ * 
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(k) where k is the number of unique characters
+ */
 @DisplayName("Finding First Non-Repeated Character Tests")
 public class FindingFirstNonRepeatedCharacterTest {
 
-    /**
-     * A program that returns the
-     * first non-repeated character from a given string
-     */
+
     private Character findFirstNonRepeatedCharacter(String str) {
         if(str == null || str.length() == 0)
             return null;

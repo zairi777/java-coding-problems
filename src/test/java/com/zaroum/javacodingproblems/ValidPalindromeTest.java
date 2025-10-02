@@ -11,15 +11,41 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
 
+/**
+ * Palindrome Validation Algorithm Tests
+ * 
+ * Problem Description:
+ * Given a string, determine if it is a palindrome. A palindrome is a string that
+ * reads the same forwards and backwards. The comparison is case-sensitive and
+ * includes all characters (letters, numbers, spaces, punctuation).
+ * 
+ * Examples:
+ * - "racecar" → true (reads same forwards and backwards)
+ * - "madam" → true (classic palindrome)
+ * - "hello" → false (not a palindrome)
+ * - "Madam" → false (case-sensitive, M ≠ m)
+ * - "12321" → true (numeric palindrome)
+ * - "a" → true (single character is always a palindrome)
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null/empty string returns false, single char returns true)
+ * 2. Reverse the string using StringBuilder
+ * 3. Compare original string with reversed string for equality
+ * 
+ * Implementation Details:
+ * - Uses StringBuilder.reverse() for efficient string reversal
+ * - Case-sensitive comparison (preserves original casing)
+ * - Handles all Unicode characters including special symbols
+ * - Single characters are considered palindromes by definition
+ * - Null and empty strings return false
+ * 
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(n) for the StringBuilder and reversed string
+ */
 @DisplayName("Valid Palindrome Tests")
 public class ValidPalindromeTest {
 
-    /**
-     * A palindrome (whether a string or a number) looks
-     * unchanged when it's reversed. This means that processing (reading) a palindrome can
-     * be done from both directions and the same result will be obtained (for example, the
-     * word madam is a palindrome, while the word madame is not)
-     */
+
     private boolean checkIsValidPalindrome(String str1) {
         if(str1 == null || str1.isEmpty()){
             return false;

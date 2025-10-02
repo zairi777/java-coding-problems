@@ -14,13 +14,37 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Counting Duplicate Characters Algorithm Tests
+ * 
+ * Problem Description:
+ * Given a string, count how many characters appear more than once in the string.
+ * The algorithm should return the number of distinct characters that have duplicates,
+ * not the total count of duplicate occurrences.
+ * 
+ * Examples:
+ * - "hello" → 1 (only 'l' appears more than once)
+ * - "programming" → 3 ('r', 'm', 'g' each appear more than once)
+ * - "abcdef" → 0 (no duplicates)
+ * - "aabbcc" → 3 ('a', 'b', 'c' each appear more than once)
+ * 
+ * Algorithm:
+ * 1. Handle edge cases (null/empty string)
+ * 2. Create a frequency map of characters using Java Streams
+ * 3. Count how many characters have frequency > 1
+ * 
+ * Implementation Details:
+ * - Uses Java 8 Streams with groupingBy and counting collectors
+ * - Case-sensitive character counting
+ * - Handles all Unicode characters including special symbols
+ * 
+ * Time Complexity: O(n) where n is the length of the string
+ * Space Complexity: O(k) where k is the number of unique characters
+ */
 @DisplayName("Counting Duplicate Characters Tests")
 public class CountingDuplicateCharactersTest {
 
-    /**
-     * A program that counts duplicate
-     * characters from a given string.
-     */
+
     private Long countDuplicateCharacters(String str) {
         if(str == null || str.length() == 0)
             return 0L;
